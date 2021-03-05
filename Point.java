@@ -9,6 +9,7 @@
  ******************************************************************************/
 
 import edu.princeton.cs.algs4.StdDraw;
+import edu.princeton.cs.algs4.StdOut;
 
 import java.util.Comparator;
 
@@ -60,8 +61,16 @@ public class Point implements Comparable<Point> {
      * @return the slope between this point and the specified point
      */
     public double slopeTo(Point that) {
-        /* YOUR CODE HERE */
-        return 0.0;
+        if (this.compareTo(that) == 0) {
+            return Double.NEGATIVE_INFINITY;
+        }
+        if (this.x == that.x) {
+            return Double.POSITIVE_INFINITY;
+        }
+        if (this.y == that.y) {
+            return 0.0;
+        }
+        return ((that.y - this.y) * 1.0) / (that.x - this.x);
     }
 
     /**
@@ -77,8 +86,15 @@ public class Point implements Comparable<Point> {
      * argument point
      */
     public int compareTo(Point that) {
-        /* YOUR CODE HERE */
-        return 0;
+        if (this.y > that.y || (this.y == that.y && this.x > that.x)) {
+            return 1;
+        }
+        else if (this.y == that.y && this.x == that.x) {
+            return 0;
+        }
+        else {
+            return -1;
+        }
     }
 
     /**
@@ -89,10 +105,20 @@ public class Point implements Comparable<Point> {
      */
     public Comparator<Point> slopeOrder() {
         /* YOUR CODE HERE */
-        return null;
+        return new Comparator<Point>() {
+            @Override
+            public int compare(Point point1, Point point2) {
+                if (slopeTo(point1) < slopeTo(point2)) {
+                    return -1;
+                }
+                else if (slopeTo(point1) > slopeTo(point2)) {
+                    return 1;
+                }
+                return 0;
+            }
+        };
     }
-
-
+    
     /**
      * Returns a string representation of this point.
      * This method is provide for debugging;
@@ -110,6 +136,29 @@ public class Point implements Comparable<Point> {
      */
     public static void main(String[] args) {
         /* YOUR CODE HERE */
-        System.out.println("done");
+        Point test1 = new Point(1, 2);
+        Point test2 = new Point(2, 1);
+        Point same2 = new Point(2, 1);
+        Point horz1 = new Point(5, 2);
+        Point vert1 = new Point(1, 5);
+        StdOut.println("Compare to tests: 1, 0, -1");
+        StdOut.println(test1.compareTo(test2));
+        StdOut.println(test2.compareTo(same2));
+        StdOut.println(test2.compareTo(test1));
+        StdOut.println("Slope to tests: slope, slope, +inf, 0.0, -inf");
+        StdOut.println(vert1.slopeTo(test2));
+        StdOut.println(horz1.slopeTo(test2));
+        StdOut.println(vert1.slopeTo(test1));
+        StdOut.println(horz1.slopeTo(test1));
+        StdOut.println(same2.slopeTo(test2));
+        Point test0 = new Point(4, 4);
+        Point testA = new Point(5, 5);
+        Point testB = new Point(4, 5);
+        Point testC = new Point(3, 4);
+        StdOut.println("Slope order test: 1, 1, -1, 0");
+        StdOut.println(test0.slopeOrder().compare(testB, testC));
+        StdOut.println(testA.slopeOrder().compare(test0, testC));
+        StdOut.println(testA.slopeOrder().compare(testC, test0));
+        StdOut.println(testA.slopeOrder().compare(testC, testC));
     }
 }
