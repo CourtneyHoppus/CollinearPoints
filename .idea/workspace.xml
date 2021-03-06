@@ -43,7 +43,14 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="settings.saveactions" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.BruteCollinearPoints">
+    <configuration name="BruteCollinearPoints" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="BruteCollinearPoints" />
+      <module name="Algorithms, Part I" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Point" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Point" />
       <module name="Algorithms, Part I" />
@@ -53,6 +60,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BruteCollinearPoints" />
         <item itemvalue="Application.Point" />
       </list>
     </recent_temporary>
@@ -71,25 +79,29 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="665" y="50" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1614973510653" />
-    <state width="819" height="136" key="GridCell.Tab.0.bottom" timestamp="1614974831901">
+    <state x="565" y="127" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog" timestamp="1614989295569">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="819" height="136" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614974831901" />
-    <state width="819" height="136" key="GridCell.Tab.0.center" timestamp="1614974831901">
+    <state x="565" y="127" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1280.680@0.0.1280.680" timestamp="1614989295569" />
+    <state width="820" height="134" key="GridCell.Tab.0.bottom" timestamp="1614995281310">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="819" height="136" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614974831901" />
-    <state width="819" height="136" key="GridCell.Tab.0.left" timestamp="1614974831901">
+    <state width="820" height="134" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614995281310" />
+    <state width="820" height="134" key="GridCell.Tab.0.center" timestamp="1614995281310">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="819" height="136" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614974831901" />
-    <state width="819" height="136" key="GridCell.Tab.0.right" timestamp="1614974831901">
+    <state width="820" height="134" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614995281310" />
+    <state width="820" height="134" key="GridCell.Tab.0.left" timestamp="1614995281310">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="819" height="136" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614974831901" />
-    <state x="519" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1614969996517">
+    <state width="820" height="134" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614995281310" />
+    <state width="820" height="134" key="GridCell.Tab.0.right" timestamp="1614995281310">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="519" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1614969996517" />
+    <state width="820" height="134" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614995281310" />
+    <state x="519" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1614993430723">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="519" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1614993430723" />
   </component>
 </project>
