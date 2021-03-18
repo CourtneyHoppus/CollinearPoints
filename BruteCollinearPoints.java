@@ -1,4 +1,4 @@
-/* *****************************************************************************
+/******************************************************************************
  *  Name:
  *  Date:
  *  Description:
@@ -10,48 +10,49 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BruteCollinearPoints {
-    private int count;
-    private ArrayList<LineSegment> segments;
-    private Point[] points;
+    private LineSegment[] segments;
 
     // finds all line segments containing 4 points
     public BruteCollinearPoints(Point[] points) {
-        count = 0;
-        segments = new ArrayList<>();
-        this.points = points.clone();
+        if (points == null) {
+            throw new NullPointerException();
+        }
+        // int count = 0;
+        ArrayList<LineSegment> list = new ArrayList<LineSegment>();
+        Point[] pointsClone = Arrays.copyOf(points, points.length);
+        addSegments(list, pointsClone);
     }
 
-    public void addSegments() {
-        int length = points.length;
+    public void addSegments(ArrayList<LineSegment> list, Point[] pointsClone) {
+        Arrays.sort(pointsClone);
+        int length = pointsClone.length;
         for (int idxP = 0; idxP < length - 3; idxP++) {
             for (int idxQ = idxP + 1; idxQ < length - 2; idxQ++) {
                 for (int idxR = idxQ + 1; idxR < length - 1; idxR++) {
                     for (int idxS = idxR + 1; idxS < length; idxS++) {
-                        double slopePQ = points[idxP].slopeTo(points[idxQ]);
-                        double slopePR = points[idxP].slopeTo(points[idxR]);
-                        double slopePS = points[idxP].slopeTo(points[idxS]);
+                        double slopePQ = pointsClone[idxP].slopeTo(pointsClone[idxQ]);
+                        double slopePR = pointsClone[idxP].slopeTo(pointsClone[idxR]);
+                        double slopePS = pointsClone[idxP].slopeTo(pointsClone[idxS]);
                         if (slopePQ == slopePR && slopePR == slopePS) {
-                            count++;
-                            segments.add(new LineSegment(points[idxP], points[idxS]));
+                            // count++;
+                            list.add(new LineSegment(pointsClone[idxP], pointsClone[idxS]));
                         }
                     }
                 }
             }
         }
+        segments = list.toArray(new LineSegment[list.size()]);
     }
 
     // the number of line segments
     public int numberOfSegments() {
-        return count;
+        // return count;
+        return segments.length;
     }
 
     // the line segments
     public LineSegment[] segments() {
-        LineSegment[] lineSegments = new LineSegment[segments.size()];
-        for (int idx = 0; idx < lineSegments.length; idx++) {
-            lineSegments[idx] = segments.get(idx);
-        }
-        return lineSegments;
+        return segments;
     }
 
     public static void main(String[] args) {
