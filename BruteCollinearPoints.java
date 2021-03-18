@@ -23,7 +23,7 @@ public class BruteCollinearPoints {
         addSegments(list, pointsClone);
     }
 
-    public void addSegments(ArrayList<LineSegment> list, Point[] pointsClone) {
+    private void addSegments(ArrayList<LineSegment> list, Point[] pointsClone) {
         Arrays.sort(pointsClone);
         int length = pointsClone.length;
         for (int idxP = 0; idxP < length - 3; idxP++) {
