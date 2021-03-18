@@ -10,17 +10,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BruteCollinearPoints {
-    private LineSegment[] segments;
+    public LineSegment[] segments;
 
     // finds all line segments containing 4 points
     public BruteCollinearPoints(Point[] points) {
         if (points == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
-        // int count = 0;
+        if (!checkNullPoints(points)) {
+            throw new IllegalArgumentException();
+        }
+        if (!checkRepeatedPoints(points)) {
+            throw new IllegalArgumentException();
+        }
         ArrayList<LineSegment> list = new ArrayList<LineSegment>();
         Point[] pointsClone = Arrays.copyOf(points, points.length);
         addSegments(list, pointsClone);
+        segments = list.toArray(new LineSegment[0]);
     }
 
     private void addSegments(ArrayList<LineSegment> list, Point[] pointsClone) {
@@ -41,7 +47,26 @@ public class BruteCollinearPoints {
                 }
             }
         }
-        segments = list.toArray(new LineSegment[list.size()]);
+    }
+
+    private boolean checkNullPoints(Point[] points) {
+        for (Point point : points) {
+            if (point == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkRepeatedPoints(Point[] points) {
+        for (int i = 0; i < points.length - 1; i++) {
+            for (int j = i + 1; j < points.length; j++) {
+                if (points[i].compareTo(points[j]) == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     // the number of line segments
@@ -52,6 +77,9 @@ public class BruteCollinearPoints {
 
     // the line segments
     public LineSegment[] segments() {
+        if (segments == null) {
+            return new LineSegment[0];
+        }
         return segments;
     }
 
