@@ -80,7 +80,8 @@ public class BruteCollinearPoints {
         if (segments == null) {
             return new LineSegment[0];
         }
-        return segments;
+        LineSegment[] lines = segments.clone();
+        return lines;
     }
 
     public static void main(String[] args) {
