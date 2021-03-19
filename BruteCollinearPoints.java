@@ -36,12 +36,15 @@ public class BruteCollinearPoints {
             for (int idxQ = idxP + 1; idxQ < length - 2; idxQ++) {
                 for (int idxR = idxQ + 1; idxR < length - 1; idxR++) {
                     for (int idxS = idxR + 1; idxS < length; idxS++) {
-                        double slopePQ = pointsClone[idxP].slopeTo(pointsClone[idxQ]);
-                        double slopePR = pointsClone[idxP].slopeTo(pointsClone[idxR]);
-                        double slopePS = pointsClone[idxP].slopeTo(pointsClone[idxS]);
+                        double slopePQ =
+                                pointsClone[idxP].slopeTo(pointsClone[idxQ]);
+                        double slopePR =
+                                pointsClone[idxP].slopeTo(pointsClone[idxR]);
+                        double slopePS =
+                                pointsClone[idxP].slopeTo(pointsClone[idxS]);
                         if (slopePQ == slopePR && slopePR == slopePS) {
-                            // count++;
-                            list.add(new LineSegment(pointsClone[idxP], pointsClone[idxS]));
+                            list.add(new LineSegment(pointsClone[idxP],
+                                                     pointsClone[idxS]));
                         }
                     }
                 }
@@ -95,4 +98,3 @@ public class BruteCollinearPoints {
         StdOut.println(Arrays.toString(brute.segments()));
     }
 }
-

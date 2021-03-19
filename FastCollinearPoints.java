@@ -25,9 +25,9 @@ public class FastCollinearPoints {
         if (!checkRepeatedPoints(points)) {
             throw new IllegalArgumentException();
         }
+        Point[] pointClone = points.clone();
         ArrayList<LineSegment> list = new ArrayList<LineSegment>();
-        Point[] pointsClone = Arrays.copyOf(points, points.length);
-        addSegments(list, pointsClone);
+        addSegments(list, pointClone);
         segments = list.toArray(new LineSegment[0]);
     }
 
@@ -51,13 +51,17 @@ public class FastCollinearPoints {
         return true;
     }
 
-    private void addSegments(ArrayList<LineSegment> list, Point[] pointsClone) {
-        
+    private void addSegments(ArrayList<LineSegment> list, Point[] pointClone) {
+        for (Point p : pointClone) {
+            Arrays.sort(pointClone, p.slopeOrder());
+            for (int q = 0; q < pointClone.length; q++) {
+                list.add(new LineSegment(p, pointClone[q]));
+            }
+        }
     }
 
     // the number of line segments
     public int numberOfSegments() {
-        // return count;
         return segments.length;
     }
 
@@ -66,8 +70,7 @@ public class FastCollinearPoints {
         if (segments == null) {
             return new LineSegment[0];
         }
-        LineSegment[] lines = segments.clone();
-        return lines;
+        return segments.clone();
     }
 
     public static void main(String[] args) {
